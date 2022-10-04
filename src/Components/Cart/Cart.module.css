@@ -4,6 +4,7 @@
     padding: 0;
     max-height: 20rem;
     overflow: auto;
+    color: red;
   }
   
   .total {
@@ -43,4 +44,23 @@
   .actions .button {
     background-color: #8a2b06;
     color: white;
+  }
+
+
+  .cart-items li span {
+    color:rgb(179, 108, 41);
+    display:flex;
+    justify-content: space-between;
+  }
+
+  .cart-items li {
+    padding: 5px;
+    margin: 5px;
+    box-shadow: 10px 5px 5px rgb(131, 58, 58);
+    border-radius: 25px;
+    font-weight: bold;
+  }
+
+  .cart-items li  :hover{
+   color: black
   }
