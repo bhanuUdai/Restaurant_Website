@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import classes from "./Cart.module.css";
 import Modal from "../UI/Modal";
 import CartContext from "../../Store/cart-context";
-const Cart = (prop) => {
 
-  const cartctx=useContext(CartContext)
+const Cart = (prop) => {
+  const cartctx = useContext(CartContext);
   // let amount=cartctx.items.reduce((acum,item)=>
   // {
   //   return acum+Number(item.price)
@@ -12,18 +12,40 @@ const Cart = (prop) => {
 
   // let absAmount=Math.floor(amount)
 
-  const totalAmount=`$${cartctx.totalAmount.toFixed(2)}`
-  
+  const deleteItemHandler = (id) => {
+    cartctx.removeItem(id);
+  };
+
+  const totalAmount = `$${cartctx.totalAmount.toFixed(2)}`;
+
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {cartctx.items.map((item) => {
-        return <li key={item.id}><span>Dish : <div>{item.name}</div></span> <span>Quantity:  <div>{item.quantity}</div></span> <span>Price : <div>{item.price}</div></span>  </li>;
+        return (
+          <li key={item.id}>
+            <span>
+              Dish : <div>{item.name}</div>
+            </span>{" "}
+            <span>
+              Quantity:{" "}
+              <div>
+                {item.quantity} <button>+</button>{" "}
+                <button onClick={deleteItemHandler.bind(this, item.id)}>
+                  -
+                </button>{" "}
+              </div>
+            </span>{" "}
+            <span>
+              Price : <div>{item.price}</div>
+            </span>{" "}
+          </li>
+        );
       })}
     </ul>
   );
 
   return (
-    <Modal onCloseBackdrop={prop.onClose} >
+    <Modal onCloseBackdrop={prop.onClose}>
       <div>
         {cartItems}
         <div className={classes.total}>
@@ -31,7 +53,9 @@ const Cart = (prop) => {
           <span>{totalAmount}</span>
         </div>
         <div className={classes.actions}>
-          <button onClick={prop.onClose} className={classes["button--alt"]}>Close</button>
+          <button onClick={prop.onClose} className={classes["button--alt"]}>
+            Close
+          </button>
           <button className={classes.button}>Order</button>
         </div>
       </div>

@@ -64,3 +64,16 @@
   .cart-items li  :hover{
    color: black
   }
+
+  .cart-items li span div  button{
+    color:#000000;
+    background-color: #8a2b068e;
+    width: 2rem;
+    border-radius: 1.5rem;
+    border-color: rgb(233, 109, 59);
+  }
+
+  .cart-items li span div{
+    font-style: italic;
+    color: rgb(177, 177, 9);
+  }
