@@ -16,6 +16,11 @@ const Cart = (prop) => {
     cartctx.removeItem(id);
   };
 
+  const addItemHandler=(id)=>
+  {
+    cartctx.addOnItem(id)
+  }
+
   const totalAmount = `$${cartctx.totalAmount.toFixed(2)}`;
 
   const cartItems = (
@@ -29,7 +34,7 @@ const Cart = (prop) => {
             <span>
               Quantity:{" "}
               <div>
-                {item.quantity} <button>+</button>{" "}
+                {item.quantity} <button onClick={addItemHandler.bind(this,item.id)}>+</button>{" "}
                 <button onClick={deleteItemHandler.bind(this, item.id)}>
                   -
                 </button>{" "}
