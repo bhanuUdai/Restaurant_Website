@@ -20,7 +20,7 @@ const addItemHandler=(event)=>
 
   
     <form className={classes.form}>
-      {console.log(itemctx,"in return")}
+      {/* {console.log(itemctx,"in return")} */}
       <Input
         label="Amount"
         input={{

@@ -6,6 +6,7 @@ const CartProvider = (prop) => {
   const addItemToCartHandler = (item) => {
     let hasItem = false;
 
+    console.log(item.quantity)
     const newArray = [...items];
     newArray.forEach((data, index) => {
       if (data.id === item.id) {
@@ -15,13 +16,13 @@ const CartProvider = (prop) => {
       }
     });
 
-    items.forEach((data, index) => {
-      if (data.id === item.id) {
-        items[index].quantity =
-          Number(items[index].quantity) + Number(item.quantity);
-        hasItem = true;
-      }
-    });
+    // items.forEach((data, index) => {
+    //   if (data.id === item.id) {
+    //     items[index].quantity =
+    //       Number(items[index].quantity) + Number(item.quantity);
+    //     hasItem = true;
+    //   }
+    // });
 
     if (hasItem === false) {
       setItems([...items, item]);
